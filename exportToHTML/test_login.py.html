@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>test_login.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+test_login.py</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">time</span>
+<span class="s0">from </span><span class="s1">selenium </span><span class="s0">import </span><span class="s1">webdriver</span>
+<span class="s0">from </span><span class="s1">selenium.webdriver.common.by </span><span class="s0">import </span><span class="s1">By</span>
+<span class="s0">from </span><span class="s1">TestCases.conftest </span><span class="s0">import </span><span class="s1">setup</span>
+<span class="s0">from </span><span class="s1">Pageobject.LoginPage </span><span class="s0">import </span><span class="s1">Loginpage</span>
+<span class="s0">from </span><span class="s1">selenium.webdriver.chrome.service </span><span class="s0">import </span><span class="s1">Service</span>
+<span class="s0">from </span><span class="s1">selenium.webdriver.support.ui </span><span class="s0">import </span><span class="s1">Select</span>
+
+<span class="s0">class </span><span class="s1">Test_001_login :</span>
+    <span class="s1">Base_url = </span><span class="s2">&quot;https://www.saucedemo.com/&quot;</span>
+    <span class="s1">user1 = </span><span class="s2">&quot;standard_user&quot;</span>
+    <span class="s1">user2 = </span><span class="s2">&quot;performance_glitch_user&quot;</span>
+    <span class="s1">password = </span><span class="s2">&quot;secret_sauce&quot;</span>
+
+    <span class="s0">def </span><span class="s1">test_homepagetitle(self</span><span class="s0">,</span><span class="s1">setup):</span>
+        <span class="s1">self.driver = setup</span>
+        <span class="s1">self.driver.get(self.Base_url)</span>
+        <span class="s1">self.driver.implicitly_wait(</span><span class="s3">2</span><span class="s1">)</span>
+        <span class="s1">actl_Title = self.driver.title</span>
+        <span class="s0">if </span><span class="s1">actl_Title == </span><span class="s2">&quot;Swag Labs&quot;</span><span class="s1">:</span>
+            <span class="s0">assert True</span>
+        <span class="s0">else</span><span class="s1">:</span>
+            <span class="s0">assert False</span>
+
+    <span class="s0">def </span><span class="s1">test_login(self</span><span class="s0">,</span><span class="s1">setup):</span>
+        <span class="s1">self.driver = setup</span>
+        <span class="s1">self.driver.get(self.Base_url)</span>
+        <span class="s1">self.lp = Loginpage(self.driver)</span>
+        <span class="s1">self.lp.SetUserName(self.user1)</span>
+        <span class="s1">self.lp.SetPass(self.password)</span>
+        <span class="s1">self.lp.clickLogin()</span>
+        <span class="s1">act_title = self.driver.title</span>
+        <span class="s0">if </span><span class="s1">act_title == </span><span class="s2">&quot;Swag Labs&quot;</span><span class="s1">:</span>
+            <span class="s1">self.lp.clickLogout()</span>
+            <span class="s0">assert True</span>
+        <span class="s0">else</span><span class="s1">:</span>
+            <span class="s1">self.driver.save_screenshot(</span><span class="s2">'.</span><span class="s0">\\</span><span class="s2">Screenshorts</span><span class="s0">\\</span><span class="s2">+homepage.png'</span><span class="s1">)</span>
+            <span class="s1">self.driver.close()</span>
+            <span class="s0">assert False</span>
+
+    <span class="s0">def </span><span class="s1">test_login_user2(self</span><span class="s0">,</span><span class="s1">setup):</span>
+        <span class="s1">self.driver = setup</span>
+        <span class="s1">self.driver.get(self.Base_url)</span>
+        <span class="s1">self.lp = Loginpage(self.driver)</span>
+        <span class="s1">self.lp.SetUserName(self.user2)</span>
+        <span class="s1">self.lp.SetPass(self.password)</span>
+        <span class="s1">self.lp.clickLogin()</span>
+        <span class="s1">act_title = self.driver.title</span>
+        <span class="s0">if </span><span class="s1">act_title == </span><span class="s2">&quot;Swag Labs&quot;</span><span class="s1">:</span>
+            <span class="s1">self.lp.clickLogout()</span>
+            <span class="s0">assert True</span>
+        <span class="s0">else</span><span class="s1">:</span>
+            <span class="s1">self.driver.save_screenshot(</span><span class="s2">'.</span><span class="s0">\\</span><span class="s2">Screenshorts</span><span class="s0">\\</span><span class="s2">+homepage.png'</span><span class="s1">)</span>
+            <span class="s1">self.driver.close()</span>
+            <span class="s0">assert False</span></pre>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>conftest.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+conftest.py</font>
+</center></td></tr></table>
+<pre><span class="s0">from </span><span class="s1">selenium </span><span class="s0">import </span><span class="s1">webdriver</span>
+<span class="s0">from </span><span class="s1">selenium.webdriver.common.by </span><span class="s0">import </span><span class="s1">By</span>
+<span class="s0">import </span><span class="s1">pytest</span>
+<span class="s0">from </span><span class="s1">selenium.webdriver.chrome.service </span><span class="s0">import </span><span class="s1">Service</span>
+
+
+
+<span class="s1">@pytest.fixture()</span>
+
+<span class="s0">def </span><span class="s1">setup():</span>
+        <span class="s1">s = Service(</span><span class="s2">&quot;C:/Users/Dell/Desktop/drivers/chrome driver/chromedriver2.exe&quot;</span><span class="s1">)</span>
+        <span class="s1">driver = webdriver.Chrome(service=s)</span>
+        <span class="s1">print(</span><span class="s2">&quot;launching chrome browser.............&quot;</span><span class="s1">)</span>
+        <span class="s0">return </span><span class="s1">driver</span></pre>
+</body>
+</html>
