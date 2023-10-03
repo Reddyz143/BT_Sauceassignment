@@ -3,9 +3,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from TestCases.conftest import setup
 from Pageobject.LoginPage import Loginpage
-from Utilities.Logger import LogGen
 from Pageobject.ItemSort import Itemsort
-from selenium.webdriver.support.ui import Select
+
 
 
 class Test_004_change_sortorder:

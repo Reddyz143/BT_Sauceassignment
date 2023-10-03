@@ -9,7 +9,8 @@ class Itemsort :
     low_high_03_xpath = "//*[@id='header_container']/div[2]/div/span/select/option[3]"
     high_low_04_xpath = "//*[@id='header_container']/div[2]/div/span/select/option[4]"
     item_names_Xpath = "//*[@id='item_[0-5]_title_link']/div"
-
+    hilo_first_item = "//button[@id='add-to-cart-sauce-labs-fleece-jacket']"
+    lohi_first_item = "//button[@id='add-to-cart-sauce-labs-onesie']"
 
     def __init__(self,driver):
         self.driver = driver
@@ -25,6 +26,12 @@ class Itemsort :
         self.driver.find_element(By.XPATH,self.low_high_03_xpath).click()
     def option4(self):
         self.driver.find_element(By.XPATH,self.high_low_04_xpath).click()
+    def hiloitem(self):
+        self.driver.find_element(By.XPATH, self.hilo_first_item).click()
+    def lohiitem(self):
+        self.driver.find_element(By.XPATH, self.lohi_first_item).click()
+
+
 
 
 
